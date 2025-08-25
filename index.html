@@ -3,69 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VERO Inspired</title>
+  <title>VERO Inspired 🚀</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body onload="abrirTikTok()">
+<body>
   <header>
-    <h1>VERO Inspired</h1>
-    <input type="text" id="nameInput" placeholder="Teu nome" />
-    <button onclick="generateAvatar()">Gerar Avatar</button>
-    <img id="avatar" alt="Avatar" />
-    <div id="notificacoes">🔔 <span id="notifCount">0</span> novas</div>
+    <h1>VERO Inspired 🚀</h1>
+    <div id="avatar-container"></div>
   </header>
-
-  <nav>
-    <button onclick="showTab('feed')">Feed</button>
-    <button onclick="showTab('mensagens')">Mensagens</button>
-    <button onclick="showTab('perfil')">Perfil</button>
-    <button onclick="showTab('criar')">Criar</button>
-    <button onclick="showTab('criador')">Modo Criador</button>
-  </nav>
-
   <main>
-    <section id="feed" class="tab active">
-      <div class="card">
-        <p>Publicação 1</p>
-        <button onclick="curtir(this)">❤️ Curtir</button>
-        <span class="likes">0</span>
-      </div>
-    </section>
-
-    <section id="mensagens" class="tab">
-      <div class="chat">
-        <p><strong>Tu:</strong> Olá!</p>
-        <p><strong>Amigo:</strong> E aí, tudo certo?</p>
-      </div>
-    </section>
-
-    <section id="perfil" class="tab">
-      <h2>Perfil</h2>
-      <p>Nome: <span id="userName">PEDRO</span></p>
-      <p>Publicações: 12</p>
-      <p>Seguidores: 340</p>
-    </section>
-
-    <section id="criar" class="tab">
-      <h2>Criar publicação</h2>
-      <textarea id="postText" placeholder="Escreve algo..."></textarea>
-      <input type="file" id="postImage" accept="image/*" />
-      <button onclick="publicar()">Publicar</button>
-      <div id="postPreview"></div>
-    </section>
-
-    <section id="criador" class="tab">
-      <h2>Modo Criador</h2>
-      <p>Alcance médio: 1.2K</p>
-      <p>Engajamento: 8.4%</p>
-      <p>Melhor horário: 21h</p>
-    </section>
+    <section id="feed"></section>
+    <button onclick="gerarAvatar()">🎭 Gerar Avatar AI</button>
+    <button onclick="convidarAmigo()">📨 Convidar Amigo</button>
   </main>
-
-  <footer>
-    <p>&copy; 2025 PEDRO | Projeto VERO Inspired</p>
-  </footer>
-
   <script src="script.js"></script>
+  <script src="ai.js"></script>
+  <script src="theme.js"></script>
+  <script src="feed.js"></script>
+  <script src="gamification.js"></script>
+  <script src="firebase-auth.js"></script>
 </body>
 </html>
