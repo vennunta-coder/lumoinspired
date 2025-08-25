@@ -1,0 +1,50 @@
+<!--
+  🎬 LUMO INSPIRED
+  Onde vídeo e rede social se encontram num layout fluido, moderno e interativo.
+  Descrição curta: Layout web com vídeo, painel social TikTok/Instagram, mockups de feed, controlo de som e animações suaves.
+-->
+<div class="main">
+  <!-- Vídeo -->
+  <div class="video-col">
+    <div class="video-wrapper">
+      <video id="main-video" src="video.mp4" controls muted></video>
+      <div id="sound-hint" class="hint">Pressiona ENTER para ativar o som</div>
+      <button id="toggle-sound" class="sound-btn" style="display:none;">Ligar som</button>
+    </div>
+  </div>
+
+  <!-- Painel Social -->
+  <div class="panel-col">
+    <div class="tabs">
+      <button class="tab active" data-tab="tiktok">LUMO TikTok</button>
+      <button class="tab" data-tab="instagram">LUMO Instagram</button>
+    </div>
+    <div class="panel-body">
+      <!-- TikTok -->
+      <div id="tab-tiktok" class="tab-content">
+        <div class="actions">
+          <input type="text" placeholder="URL TikTok">
+          <button>Carregar</button>
+        </div>
+        <div class="feed-grid">
+          <div class="feed-card"><img src="https://placehold.co/150x150/ff0050/fff?text=TikTok+1" alt=""></div>
+          <div class="feed-card"><img src="https://placehold.co/150x150/ff0050/fff?text=TikTok+2" alt=""></div>
+          <div class="feed-card"><img src="https://placehold.co/150x150/ff0050/fff?text=TikTok+3" alt=""></div>
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div id="tab-instagram" class="tab-content" style="display:none;">
+        <div class="actions">
+          <input type="text" placeholder="URL Instagram">
+          <button>Carregar</button>
+        </div>
+        <div class="feed-grid">
+          <div class="feed-card"><img src="https://placehold.co/150x150/0095f6/fff?text=Insta+1" alt=""></div>
+          <div class="feed-card"><img src="https://placehold.co/150x150/0095f6/fff?text=Insta+2" alt=""></div>
+          <div class="feed-card"><img src="https://placehold.co/150x150/0095f6/fff?text=Insta+3" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
