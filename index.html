@@ -9,46 +9,49 @@
 <body>
   <header>
     <h1>VERO Inspired</h1>
-    <input type="text" id="nameInput" placeholder="Escreve teu nome" />
-    <button onclick="generateAvatar()">Gerar Avatar</button>
-    <img id="avatar" alt="Avatar" />
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Mensagens</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <button onclick="showTab('feed')">Feed</button>
-    <button onclick="showTab('explorar')">Explorar</button>
-    <button onclick="showTab('mensagens')">Mensagens</button>
-    <button onclick="showTab('perfil')">Perfil</button>
-  </nav>
-
   <main>
-    <section id="feed" class="tab active">
-      <h2>Feed</h2>
-      <div class="card">Publicação 1</div>
-      <div class="card">Publicação 2</div>
-    </section>
+    <!-- 🟣 Stories Section -->
+    <div class="stories">
+      <div class="story" style="background-image: url('https://placehold.co/100x100?text=PEDRO');" title="PEDRO"></div>
+      <div class="story" style="background-image: url('https://placehold.co/100x100?text=LUMO');" title="LUMO"></div>
+      <div class="story" style="background-image: url('https://placehold.co/100x100?text=VERO');" title="VERO"></div>
+      <div class="story" style="background-image: url('https://placehold.co/100x100?text=UI');" title="UI"></div>
+      <div class="story" style="background-image: url('https://placehold.co/100x100?text=FEED');" title="FEED"></div>
+    </div>
 
-    <section id="explorar" class="tab">
-      <h2>Explorar</h2>
-      <p>Descobre novos conteúdos!</p>
-    </section>
-
-    <section id="mensagens" class="tab">
-      <h2>Mensagens</h2>
-      <div class="chat">
-        <p><strong>Tu:</strong> Olá!</p>
-        <p><strong>Amigo:</strong> E aí, tudo certo?</p>
-      </div>
-    </section>
-
-    <section id="perfil" class="tab">
-      <h2>Perfil</h2>
-      <p>Nome: <span id="userName">PEDRO</span></p>
-      <p>Publicações: 12</p>
-      <p>Seguidores: 340</p>
+    <!-- 🟢 Feed Section -->
+    <section id="feed">
+      <article class="post">
+        <h2>Post de PEDRO</h2>
+        <p>Este é um exemplo de publicação no feed. Bem-vindo ao VERO Inspired!</p>
+      </article>
+      <article class="post">
+        <h2>Post de LUMO</h2>
+        <p>Explorando novas ideias para o design da interface.</p>
+      </article>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer>
+    <p>&copy; 2025 PEDRO | Projeto VERO Inspired</p>
+  </footer>
+
+  <!-- 🔵 JavaScript opcional -->
+  <script>
+    document.querySelectorAll('.story').forEach(story => {
+      story.addEventListener('click', () => {
+        alert('Story aberto: ' + story.title);
+      });
+    });
+  </script>
 </body>
 </html>
