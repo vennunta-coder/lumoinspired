@@ -6,7 +6,7 @@
   <title>VERO Inspired</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body onload="abrirTikTok()">
   <header>
     <h1>VERO Inspired</h1>
     <input type="text" id="nameInput" placeholder="Teu nome" />
@@ -17,7 +17,6 @@
 
   <nav>
     <button onclick="showTab('feed')">Feed</button>
-    <button onclick="showTab('explorar')">Explorar</button>
     <button onclick="showTab('mensagens')">Mensagens</button>
     <button onclick="showTab('perfil')">Perfil</button>
     <button onclick="showTab('criar')">Criar</button>
@@ -25,22 +24,12 @@
   </nav>
 
   <main>
-    <div class="stories">
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=PEDRO');"></div>
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=LUMO');"></div>
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=UI');"></div>
-    </div>
-
     <section id="feed" class="tab active">
       <div class="card">
         <p>Publicação 1</p>
         <button onclick="curtir(this)">❤️ Curtir</button>
         <span class="likes">0</span>
       </div>
-    </section>
-
-    <section id="explorar" class="tab">
-      <p>Explora novos conteúdos e perfis.</p>
     </section>
 
     <section id="mensagens" class="tab">
