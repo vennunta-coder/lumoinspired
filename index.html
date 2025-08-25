@@ -2,56 +2,221 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VERO Inspired</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>IMAGINATION — Social Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    /* RESET */
+    * { box-sizing:border-box; margin:0; padding:0 }
+    html, body { height:100%; width:100%; background:#0b0b0f; color:#fff; font-family:Inter,Arial,sans-serif; overflow:hidden }
+
+    /* HEADER */
+    header {
+      height:56px; display:flex; align-items:center; justify-content:center;
+      background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.1);
+      text-transform:uppercase; font-weight:800; font-size:14px; letter-spacing:.2em;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+      position:fixed; left:16px; top:50%; transform:translateY(-50%);
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+      border-radius:18px; padding:8px; display:flex; flex-direction:column; gap:8px; z-index:10;
+    }
+    .navbtn { width:44px; height:44px; border:0; border-radius:12px; background:transparent; color:#fff; font-size:18px; cursor:pointer }
+    .navbtn:hover { background:rgba(255,255,255,0.08) }
+    .navbtn.active { background:rgba(255,255,255,0.14) }
+
+    /* INTRO FULLSCREEN */
+    #intro { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; transition:opacity .6s; z-index:5 }
+    #intro.hidden { opacity:0; pointer-events:none }
+    #intro iframe.bg { position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; filter:brightness(.9) }
+    #intro canvas { position:absolute; inset:0 }
+    #title { position:relative; font-weight:900; letter-spacing:.3em; font-size:clamp(40px,7vw,120px); text-shadow:0 0 22px rgba(0,200,255,.55) }
+
+    /* BOTÕES */
+    #enterBtn {
+      padding:12px 24px; border-radius:18px; border:0;
+      background:#00d9ff; color:#0b0b0f; font-weight:800; cursor:pointer;
+      box-shadow:0 4px 16px rgba(0,217,255,.4);
+    }
+    #enterBtn:hover { background:#00b5d1 }
+
+    #soundHint {
+      position:absolute; bottom:50%; left:50%; transform:translate(-50%,50%);
+      background:rgba(0,0,0,.6); padding:10px 16px; border-radius:12px;
+      font-size:14px; animation:pulse 1.6s infinite; z-index:20;
+    }
+    @keyframes pulse {
+      0%,100%{opacity:.8;transform:translate(-50%,50%) scale(1);}
+      50%{opacity:1;transform:translate(-50%,50%) scale(1.05);}
+    }
+
+    #muteBtn {
+      position:absolute; bottom:16px; right:16px;
+      padding:8px 14px; border-radius:14px; border:0;
+      background:rgba(0,217,255,0.9); color:#0b0b0f; font-weight:600; cursor:pointer;
+      display:none; z-index:20; box-shadow:0 4px 18px rgba(0,217,255,.45);
+      display:flex; align-items:center; gap:6px;
+    }
+    #muteBtn svg { width:18px; height:18px }
+
+    /* SOCIAL */
+    #social { position:absolute; inset:56px 0 0 0; display:grid; grid-template-columns:1fr 1fr; opacity:0; pointer-events:none; transition:opacity .6s }
+    #social.active { opacity:1; pointer-events:auto }
+
+    #videoCol { position:relative; background:#000; overflow:hidden; border-right:1px solid rgba(255,255,255,0.1) }
+    #videoCol iframe { position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover }
+
+    #panelCol { display:grid; grid-template-rows:auto 1fr; background:#111 }
+    .tabs { display:flex; border-bottom:1px solid rgba(255,255,255,0.1) }
+    .tab { flex:1; padding:14px; border:0; background:transparent; color:#fff; font-weight:600; cursor:pointer }
+    .tab.active { background:rgba(255,255,255,0.1) }
+    .panel-body { position:relative }
+    .embed { position:absolute; inset:0; width:100%; height:100%; border:0; opacity:0; pointer-events:none; transition:opacity .3s }
+    .embed.active { opacity:1; pointer-events:auto }
+    .fallback { position:absolute; inset:0; display:grid; place-items:center; background:rgba(255,255,255,0.02); opacity:0 }
+    .fallback.show { opacity:1 }
+    .card { padding:20px; border-radius:16px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12) }
+    .card a { display:inline-block; margin-top:12px; padding:10px 16px; background:#00d9ff; color:#000; border-radius:12px; text-decoration:none }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>VERO Inspired</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Perfil</a></li>
-        <li><a href="#">Mensagens</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header>IMAGINATION · VERO</header>
 
-  <main>
-    <!-- 🟣 Stories Section -->
-    <div class="stories">
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=PEDRO');" title="PEDRO"></div>
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=LUMO');" title="LUMO"></div>
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=VERO');" title="VERO"></div>
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=UI');" title="UI"></div>
-      <div class="story" style="background-image: url('https://placehold.co/100x100?text=FEED');" title="FEED"></div>
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <button class="navbtn active">🏠</button>
+    <button class="navbtn">🔍</button>
+    <button class="navbtn">👤</button>
+  </nav>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <iframe class="bg"
+      src="https://www.youtube.com/embed/l0XtZ0BuKEE?autoplay=1&mute=1&controls=0&modestbranding=1"
+      allow="autoplay; encrypted-media"></iframe>
+    <canvas id="c"></canvas>
+    <h1 id="title">IMAGINATION</h1>
+
+    <div id="soundHint">🎧 Pressiona ENTER para ativar o som</div>
+    <button id="muteBtn">
+      <svg id="iconSound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <span id="muteLabel">Ligar som</span>
+    </button>
+
+    <button id="enterBtn">Entrar</button>
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social">
+    <div id="videoCol">
+      <iframe src="https://www.youtube.com/embed/l0XtZ0BuKEE?autoplay=1&mute=1&controls=0&modestbranding=1"></iframe>
     </div>
 
-    <!-- 🟢 Feed Section -->
-    <section id="feed">
-      <article class="post">
-        <h2>Post de PEDRO</h2>
-        <p>Este é um exemplo de publicação no feed. Bem-vindo ao VERO Inspired!</p>
-      </article>
-      <article class="post">
-        <h2>Post de LUMO</h2>
-        <p>Explorando novas ideias para o design da interface.</p>
-      </article>
-    </section>
-  </main>
+    <div id="panelCol">
+      <div class="tabs">
+        <button id="tabTikTok" class="tab active">TikTok</button>
+        <button id="tabInsta" class="tab">Instagram</button>
+      </div>
+      <div class="panel-body">
+        <iframe id="paneTikTok" class="embed active" src="https://www.tiktok.com/login"></iframe>
+        <iframe id="paneInsta" class="embed" src="https://www.instagram.com/"></iframe>
+        <div id="instaFallback" class="fallback">
+          <div class="card">
+            <p>O Instagram pode bloquear iframes externos.</p>
+            <a href="https://www.instagram.com/" target="_blank">Abrir Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 PEDRO | Projeto VERO Inspired</p>
-  </footer>
+<script>
+  // --- ELEMENTOS
+  const intro=document.getElementById('intro');
+  const social=document.getElementById('social');
+  const enterBtn=document.getElementById('enterBtn');
+  const hint=document.getElementById('soundHint');
+  const muteBtn=document.getElementById('muteBtn');
+  const muteLabel=document.getElementById('muteLabel');
+  const iconSound=document.getElementById('iconSound');
+  const videoFrames=[document.querySelector('#intro iframe.bg'),document.querySelector('#videoCol iframe')];
+  let isMuted=true;
 
-  <!-- 🔵 JavaScript opcional -->
-  <script>
-    document.querySelectorAll('.story').forEach(story => {
-      story.addEventListener('click', () => {
-        alert('Story aberto: ' + story.title);
-      });
+  // --- FUNÇÃO mute/unmute
+  function setMute(state){
+    isMuted=state;
+    videoFrames.forEach(f=>{
+      if(!f) return;
+      let src=f.src.replace(/&mute=\d/,'');
+      f.src=src+"&mute="+(isMuted?"1":"0");
     });
-  </script>
+    muteLabel.textContent=isMuted?"Ligar som":"Desligar som";
+    iconSound.innerHTML=isMuted
+      ?'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>'
+      :'<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+  }
+
+  // --- ENTER ativa som
+  document.addEventListener('keydown',e=>{
+    if(e.key==="Enter" && isMuted){
+      setMute(false);
+      hint.style.display="none";
+      muteBtn.style.display="flex";
+    }
+  });
+  muteBtn.addEventListener('click',()=>setMute(!isMuted));
+
+  // --- Entrar → Social
+  enterBtn.onclick=()=>{
+    intro.classList.add('hidden');
+    setTimeout(()=>social.classList.add('active'),600);
+  };
+
+  // --- Tabs TikTok/Instagram
+  const tabTikTok=document.getElementById('tabTikTok');
+  const tabInsta=document.getElementById('tabInsta');
+  const paneTikTok=document.getElementById('paneTikTok');
+  const paneInsta=document.getElementById('paneInsta');
+  const instaFallback=document.getElementById('instaFallback');
+
+  function activateTab(which){
+    if(which==="tiktok"){
+      tabTikTok.classList.add('active');
+      tabInsta.classList.remove('active');
+      paneTikTok.classList.add('active');
+      paneInsta.classList.remove('active');
+      instaFallback.classList.remove('show');
+    } else {
+      tabInsta.classList.add('active');
+      tabTikTok.classList.remove('active');
+      paneInsta.classList.add('active');
+      paneTikTok.classList.remove('active');
+      setTimeout(()=>{ if(paneInsta.classList.contains('active')) instaFallback.classList.add('show'); },4000);
+    }
+  }
+  tabTikTok.onclick=()=>activateTab("tiktok");
+  tabInsta.onclick=()=>activateTab("insta");
+
+  // --- Partículas simples
+  const cvs=document.getElementById('c'),ctx=cvs.getContext('2d');
+  let W=innerWidth,H=innerHeight;
+  function fit(){W=innerWidth;H=innerHeight;cvs.width=W;cvs.height=H}
+  onresize=fit;fit();
+  const dots=Array.from({length:120},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5),vy:(Math.random()-.5)}));
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle="rgba(0,200,255,.75)";
+    for(const d of dots){
+      d.x+=d.vx; d.y+=d.vy;
+      if(d.x<0||d.x>W)d.vx*=-1;
+      if(d.y<0||d.y>H)d.vy*=-1;
+      ctx.fillRect(d.x,d.y,2,2);
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+</script>
 </body>
 </html>
