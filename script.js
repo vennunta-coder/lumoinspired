@@ -44,4 +44,16 @@ function publicar() {
     parseInt(document.getElementById('notifCount').textContent) + 1;
 }
 
-function curtir
+function curtir(btn) {
+  const countSpan = btn.nextElementSibling;
+  let count = parseInt(countSpan.textContent);
+  countSpan.textContent = count + 1;
+}
+
+function abrirTikTok() {
+  window.open("https://www.tiktok.com", "_blank");
+}
+
+window.onload = () => {
+  generateAvatar();
+};
