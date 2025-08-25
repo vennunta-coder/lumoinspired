@@ -2,10 +2,16 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <title>IMAGINATION — Social Hub</title>
+  <title>IMAGINATION LUMO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
+/* Esconde os vídeos do YouTube */
+#intro iframe.bg,
+#videoCol iframe {
+  display: none !important;
+}
+
     /* RESET */
     * { box-sizing:border-box; margin:0; padding:0 }
     html, body { height:100%; width:100%; background:#0b0b0f; color:#fff; font-family:Inter,Arial,sans-serif; overflow:hidden }
@@ -79,10 +85,22 @@
     .fallback.show { opacity:1 }
     .card { padding:20px; border-radius:16px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12) }
     .card a { display:inline-block; margin-top:12px; padding:10px 16px; background:#00d9ff; color:#000; border-radius:12px; text-decoration:none }
-  </style>
+  
+/* Esconde a sidebar */
+#sidebar {
+  display: none !important;
+}
+
+
+/* Esconde o botão Entrar */
+#enterBtn {
+  display: none !important;
+}
+
+</style>
 </head>
 <body>
-  <header>IMAGINATION · VERO</header>
+  <header>IMAGINATION LUPO</header>
 
   <!-- SIDEBAR -->
   <nav id="sidebar">
