@@ -1,50 +1,54 @@
-<!--
-  🎬 LUMO INSPIRED
-  Onde vídeo e rede social se encontram num layout fluido, moderno e interativo.
-  Descrição curta: Layout web com vídeo, painel social TikTok/Instagram, mockups de feed, controlo de som e animações suaves.
--->
-<div class="main">
-  <!-- Vídeo -->
-  <div class="video-col">
-    <div class="video-wrapper">
-      <video id="main-video" src="video.mp4" controls muted></video>
-      <div id="sound-hint" class="hint">Pressiona ENTER para ativar o som</div>
-      <button id="toggle-sound" class="sound-btn" style="display:none;">Ligar som</button>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VERO Inspired</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>VERO Inspired</h1>
+    <input type="text" id="nameInput" placeholder="Escreve teu nome" />
+    <button onclick="generateAvatar()">Gerar Avatar</button>
+    <img id="avatar" alt="Avatar" />
+  </header>
 
-  <!-- Painel Social -->
-  <div class="panel-col">
-    <div class="tabs">
-      <button class="tab active" data-tab="tiktok">LUMO TikTok</button>
-      <button class="tab" data-tab="instagram">LUMO Instagram</button>
-    </div>
-    <div class="panel-body">
-      <!-- TikTok -->
-      <div id="tab-tiktok" class="tab-content">
-        <div class="actions">
-          <input type="text" placeholder="URL TikTok">
-          <button>Carregar</button>
-        </div>
-        <div class="feed-grid">
-          <div class="feed-card"><img src="https://placehold.co/150x150/ff0050/fff?text=TikTok+1" alt=""></div>
-          <div class="feed-card"><img src="https://placehold.co/150x150/ff0050/fff?text=TikTok+2" alt=""></div>
-          <div class="feed-card"><img src="https://placehold.co/150x150/ff0050/fff?text=TikTok+3" alt=""></div>
-        </div>
-      </div>
+  <nav>
+    <button onclick="showTab('feed')">Feed</button>
+    <button onclick="showTab('explorar')">Explorar</button>
+    <button onclick="showTab('mensagens')">Mensagens</button>
+    <button onclick="showTab('perfil')">Perfil</button>
+  </nav>
 
-      <!-- Instagram -->
-      <div id="tab-instagram" class="tab-content" style="display:none;">
-        <div class="actions">
-          <input type="text" placeholder="URL Instagram">
-          <button>Carregar</button>
-        </div>
-        <div class="feed-grid">
-          <div class="feed-card"><img src="https://placehold.co/150x150/0095f6/fff?text=Insta+1" alt=""></div>
-          <div class="feed-card"><img src="https://placehold.co/150x150/0095f6/fff?text=Insta+2" alt=""></div>
-          <div class="feed-card"><img src="https://placehold.co/150x150/0095f6/fff?text=Insta+3" alt=""></div>
-        </div>
+  <main>
+    <section id="feed" class="tab active">
+      <h2>Feed</h2>
+      <div class="card">Publicação 1</div>
+      <div class="card">Publicação 2</div>
+    </section>
+
+    <section id="explorar" class="tab">
+      <h2>Explorar</h2>
+      <p>Descobre novos conteúdos!</p>
+    </section>
+
+    <section id="mensagens" class="tab">
+      <h2>Mensagens</h2>
+      <div class="chat">
+        <p><strong>Tu:</strong> Olá!</p>
+        <p><strong>Amigo:</strong> E aí, tudo certo?</p>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+
+    <section id="perfil" class="tab">
+      <h2>Perfil</h2>
+      <p>Nome: <span id="userName">PEDRO</span></p>
+      <p>Publicações: 12</p>
+      <p>Seguidores: 340</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
